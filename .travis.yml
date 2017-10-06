@@ -1,0 +1,17 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -r requirements.txt
+script:
+- pytest
+deploy:
+  provider: lambda
+  function_name: s3_lambda_python
+  region: us-west-2
+  role: arn:aws:iam::693079299579:role/s3_lambda
+  runtime: python3.6
+  handler_name: handler
+  access_key_id: AKIAJCJX7W24I5WRAUMQ
+  secret_access_key:
+    secure: MHkvmeJOcHipvO67ZbMpUZhCqYaggXrw57Bd0teMuHG5vLMMUPAv8He8sGbNrJ+4T4yMFZkX2rktxRt+hxR/o3eg9b+pwDCajXq1392Iy2ruAJLr+KYjIu8RR4DmCoxD7DOgUI7tSi5llAqt9SlIIfRqmHzo7OzNAPkRfAMj2iTGn3rG/gT8ij5AUZewUeMc4RaygWkxumUqOybHQ9IOZrCO4pHYmCIu+3dLLMnXjY99Ci9STU4eXJagJE+3yxkmy0h1o3SoZclatE5XAJgMabmYS7GoPNJ74EKXdBrbiQCajFv9GDNuhV/5IA+Wl2ALmrbehoYyEjTc2emhb36Na+UgCG8Vk5+C2N497U/bcm1WDsy6GXOunCo6ZpcgurAEALxfoxTJtDY9qCORdKe5OAx+ULhqJ7RUAkt6NhJUhTvM2atIRHq9fELL2Nkd/ZPdDTcezy2oe5sTmrQsO2MuqSdn2bdqcqyyWw2SSLYANq/2Rv2CfdTNhj3K+TVyPkEaIuBo+ucgdXffHSTavYF0Kdl+hylP0zb+avipWcOAgtRMfoqVlmmrkvtrYhKijDIgnUm7yLjV0qYqIa2oN0yq1t/jKwikdy/7/BSclnpIeYAeHAm8k+mQV7XH8YpU5VHQ0qT5UvHGblJBqVMtjgM5mUxeCq48MKD1ABnMvnd8ai4=
